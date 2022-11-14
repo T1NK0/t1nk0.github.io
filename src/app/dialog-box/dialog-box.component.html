@@ -1,17 +1,27 @@
+<div>
 <h1>Dialog test</h1>
-<form>
-  <fieldset>
-    <label></label>
-    <input type="text"/>
-  </fieldset>
+  <form>
+      <label for="uploadName">Pictures name</label>
+      <input id="uploadName" type="text" placeholder="name"/>
 
-  <fieldset>
-    <label></label>
-    <input type="text"/>
-  </fieldset>
+      <label for="type">Filetype</label>
+      <select id="type">
+        <option default>Pick a file type</option>
+        <option value=".png">png</option>
+        <option value=".jpg">jpg</option>
+        <option value=".jpeg">jpeg</option>
+        <option value=".gif">gif</option>
+      </select>
 
-  <fieldset>
-    <label></label>
-    <input type="text"/>
-  </fieldset>
-</form>
+      <label for="size">Size</label>
+      <select id="size">
+        <option default>Pick a file type</option>
+        <option value="1920x1080">1920x1080</option>
+        <option value="1280x720">1280x720</option>
+        <option value="128x128">128x128</option>
+      </select>
+
+      <input type="submit"/>
+  </form>
+</div>
+
