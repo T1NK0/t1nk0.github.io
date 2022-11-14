@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-file-upload',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class FileUploadComponent implements OnInit {
 
   constructor() { }
+
 
   ngOnInit(): void {
   }

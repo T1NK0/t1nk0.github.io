@@ -1,4 +1,4 @@
 <p>file-upload works!</p>
-<input type="file" class="file-upload"  onchange="console.log(event.target.files)">
-<!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
-<button mat-button>Open dialog</button>
+<input id="formInput" type="file" class="file-upload" onchange="console.log(event.target.files)">
+<!-- <button mat-button (click)="openDialog()">Upload</button> -->
+<button mat-button [routerLink]="['/dialog']" routerLinkActive="router-link-active">Upload</button>
