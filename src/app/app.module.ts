@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FileUploadComponent } from './file-upload/file-upload.component';
+import { TableDataComponent } from './components/table-data/table-data.component';
+import { DialogRowContentComponent } from './components/dialogs/dialog-row-content/dialog-row-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FileUploadComponent
+    DialogRowContentComponent,
+    TableDataComponent,
   ],
   imports: [
+    MatDialogModule,
+    MatTableModule,
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
