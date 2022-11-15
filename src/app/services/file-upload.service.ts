@@ -27,4 +27,8 @@ export class FileUploadService {
     let tempImage: RowElement[] = [row];
     this.subject.next(tempImage);
   }
+
+  public updateRow(newRow: RowElement) {
+    this.
+  }
 }
