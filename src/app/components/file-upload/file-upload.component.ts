@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RowElement } from 'src/app/interfaces/row-element';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+import { DialogImageUploadComponent } from '../dialogs/dialog-image-upload/dialog-image-upload.component';
 import { DialogRowContentComponent } from '../dialogs/dialog-row-content/dialog-row-content.component';
 
 @Component({
@@ -22,9 +23,13 @@ export class FileUploadComponent implements OnInit {
 		reader.readAsDataURL(event.target.files[0]);
 
     reader.onload = (_event) => {
-      this.dialog.open(DialogRowContentComponent,
+
+      // const tempRow: RowElement = {image: reader.result, name: file.name, size: file.size, type: file.type}
+      // this.dataTableService.addToTable(tempRow);
+
+      this.dialog.open(DialogImageUploadComponent,
         {
-          data: {image: reader.result, name: file.name, size: file.size, type: file.type}
+          data: {image: reader.result, name: '', size: '', type: ''}
         });
 		}
   }

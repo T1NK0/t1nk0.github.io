@@ -1,25 +1,24 @@
-<p>dialog-row-content works!</p>
+<p>dialog-image-upload works!</p>
 <h1 mat-dialog-title>Row Details</h1>
 <div mat-dialog-content>
   <img src={{data.image}}>
-  <form [formGroup]="updateImageForm" (ngSubmit)="save(updateImageForm)">
-    <mat-form-field>
+  <form [formGroup]="uploadImageForm" (ngSubmit)="save()">
+    <mat-form-field appearance="fill">
       <mat-label for="uploadName">Name</mat-label>
       <input matInput id="uploadName" name="uploadName" formControlName="uploadName" value={{data.name}}>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label for="uploadSize">Size</mat-label>
       <input matInput id="uploadSize" name="uploadSize" formControlName="uploadSize" value={{data.size}}>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label for="uploadType">Type</mat-label>
       <input matInput id="uploadType" name="uploadType" formControlName="uploadType" value={{data.type}}>
     </mat-form-field>
     <div mat-dialog-actions>
-      <button type="submit">Update</button>
-      <button mat-button type="button" (click)="dialogRef.close()">Cancel</button>
+      <button type="submit">Submit</button>
     </div>
   </form>
 </div>

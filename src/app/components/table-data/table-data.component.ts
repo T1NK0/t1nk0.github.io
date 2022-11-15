@@ -14,18 +14,16 @@ const ELEMENT_DATA: RowElement[] = [];
 })
 export class TableDataComponent implements OnInit {
 
-  displayedColumns: string[] = ['image','name', 'size', 'type', 'path'];
+  displayedColumns: string[] = ['image','name', 'size', 'type'];
   tableDataSource = ELEMENT_DATA;
   clickedRows = new Set<RowElement>();
 
   constructor(private dialog: MatDialog, public dataTableService: FileUploadService) { }
 
   clickedRow(row: RowElement): void{
-    console.log('red', row)
     this.dialog.open(DialogRowContentComponent, {
         data: row
-    });
-  }
+    }).afterClosed().subscribe(updatedRow => console.log(updatedRow))};
 
   ngOnInit(): void {
   }

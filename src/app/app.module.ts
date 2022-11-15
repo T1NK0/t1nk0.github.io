@@ -29,6 +29,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { TableDataComponent } from './components/table-data/table-data.component';
 import { DialogRowContentComponent } from './components/dialogs/dialog-row-content/dialog-row-content.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { DialogImageUploadComponent } from './components/dialogs/dialog-image-upload/dialog-image-upload.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     DialogRowContentComponent,
     TableDataComponent,
     FileUploadComponent,
+    DialogImageUploadComponent,
   ],
   imports: [
     HttpClientModule,

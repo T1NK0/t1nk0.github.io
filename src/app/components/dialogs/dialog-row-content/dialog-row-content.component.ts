@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RowElement } from 'src/app/interfaces/row-element';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 
@@ -10,16 +11,22 @@ import { FileUploadService } from 'src/app/services/file-upload.service';
 })
 export class DialogRowContentComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: RowElement, public dataTableService: FileUploadService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: RowElement, public dataTableService: FileUploadService, public dialogRef: MatDialogRef<DialogRowContentComponent>, private fb: FormBuilder) { }
+
+  updateImageForm = this.fb.group({
+    uploadName: [this.data.name as string],
+    uploadSize: [this.data.size as string],
+    uploadType: [this.data.type as string],
+  })
 
   ngOnInit(): void {
   }
 
-  uploadChosenImage(){
-    this.dataTableService.addToTable(this.data);
-  }
+  save(updateImageForm:any) {
+    let test = updateImageForm.value
+    const tempRow: RowElement = {image: this.data.image, name: test.uploadName, size: test.uploadSize, type: test.uploadType}
+      // this.dataTableService.addToTable(tempRow);
 
-  updateChosenImage() {
-
+    this.dialogRef.close(tempRow);
   }
 }
