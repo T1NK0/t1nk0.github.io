@@ -13,10 +13,11 @@ const ELEMENT_DATA: RowElement[] = [];
   styleUrls: ['./table-data.component.sass']
 })
 export class TableDataComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+
+  displayedColumns: string[] = ['name', 'size', 'type'];
   tableDataSource = ELEMENT_DATA;
   clickedRows = new Set<RowElement>();
-  
+
   constructor(private dialog: MatDialog, public dataTableService: FileUploadService) { }
 
   clickedRow(row: RowElement): void{
