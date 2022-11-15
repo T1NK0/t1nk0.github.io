@@ -1,5 +1,6 @@
 export interface RowElement {
-    name: string;
-    size: number;
-    type: string;
+  image: any;
+  name: string;
+  size: number;
+  type: string;
 }

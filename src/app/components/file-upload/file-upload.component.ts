@@ -10,15 +10,22 @@ import { DialogRowContentComponent } from '../dialogs/dialog-row-content/dialog-
   styleUrls: ['./file-upload.component.sass']
 })
 export class FileUploadComponent implements OnInit {
-  constructor( public dataTableService: FileUploadService) { }
+  constructor(private dialog: MatDialog, public dataTableService: FileUploadService) { }
 
   ngOnInit(): void {
   }
 
   imageUpload(event: any) {
     var file = event.target.files[0];
-    console.log(file.name);
-    const rowEle:RowElement = {name: file.name, size: file.size, type: file.type};
-    this.dataTableService.addToTable(rowEle);
+
+    var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+
+    reader.onload = (_event) => {
+      this.dialog.open(DialogRowContentComponent,
+        {
+          data: {image: reader.result, name: file.name, size: file.size, type: file.type}
+        });
+		}
   }
 }

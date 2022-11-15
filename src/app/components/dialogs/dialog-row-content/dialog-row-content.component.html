@@ -1,20 +1,28 @@
 <p>dialog-row-content works!</p>
 <h1 mat-dialog-title>Row Details</h1>
 <div mat-dialog-content>
+
+  <img src={{data.image}}>
+
+  <form>
     <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Select</mat-label>
-        <mat-select>
-          <mat-option value="one">First option</mat-option>
-          <mat-option value="two">Second option</mat-option>
-        </mat-select>
-      </mat-form-field>
-    {{data.name}}
+      <mat-label>Name</mat-label>
+      <input matInput value={{data.name}}>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Size</mat-label>
+      <input matInput value={{data.size}}>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <input matInput value={{data.type}}>
+    </mat-form-field>
+  </form>
 </div>
 
 <div mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>
+  <button mat-button (click)="uploadChosenImage()">Upload</button>
+  <button mat-button mat-dialog-close (click)="updateChosenImage()">Update</button>
 </div>

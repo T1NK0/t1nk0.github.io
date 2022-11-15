@@ -14,7 +14,7 @@ const ELEMENT_DATA: RowElement[] = [];
 })
 export class TableDataComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'size', 'type'];
+  displayedColumns: string[] = ['image','name', 'size', 'type', 'path'];
   tableDataSource = ELEMENT_DATA;
   clickedRows = new Set<RowElement>();
 
