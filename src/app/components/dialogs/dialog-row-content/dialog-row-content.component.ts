@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RowElement } from 'src/app/interfaces/row-element';
+import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
   selector: 'app-dialog-row-content',
@@ -9,9 +10,16 @@ import { RowElement } from 'src/app/interfaces/row-element';
 })
 export class DialogRowContentComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: RowElement) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: RowElement, public dataTableService: FileUploadService) { }
 
   ngOnInit(): void {
   }
 
+  uploadChosenImage(){
+    this.dataTableService.addToTable(this.data);
+  }
+
+  updateChosenImage() {
+
+  }
 }
