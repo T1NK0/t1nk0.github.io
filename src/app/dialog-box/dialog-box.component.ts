@@ -12,4 +12,8 @@ export class DialogBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  uploadImage() {
+    
+  }
+
 }
