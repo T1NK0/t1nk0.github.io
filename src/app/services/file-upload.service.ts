@@ -9,14 +9,18 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class FileUploadService {
   //Emits to subscribers on change
-  private subject: BehaviorSubject<RowElement[]> = new BehaviorSubject<RowElement[]>([]);
+  // private subject: BehaviorSubject<RowElement[]> = new BehaviorSubject<RowElement[]>([]);
   //Observable looking on tableRows
   tableRows: Observable<RowElement[]>;
   //Datasource of the tableRows
   dataSource: MatTableDataSource<RowElement>;
+  // selectedImage: RowElement = new RowElement;
+  imagesInTable$: BehaviorSubject<RowElement[]> = new BehaviorSubject<RowElement[]>([]);
+  selectedImage$: BehaviorSubject<RowElement[]> = new BehaviorSubject<RowElement[]>([]);
+
 
   constructor() {
-    this.tableRows = this.subject.asObservable();
+    this.tableRows = this.imagesInTable$.asObservable();
     this.dataSource = new MatTableDataSource<RowElement>([]);
     this.tableRows.subscribe((data) => {
       this.dataSource.data = this.dataSource.data.concat(data);
@@ -25,6 +29,12 @@ export class FileUploadService {
 
   public addToTable(row: RowElement){
     let tempImage: RowElement[] = [row];
-    this.subject.next(tempImage);
+    this.imagesInTable$.next(tempImage);
+  }
+
+  updateSelectedImage(row: RowElement[]) {
+    let selectedImage = row;
+    this.selectedImage$.next(selectedImage);
+    console.log("selectedImage$ in datahandler: ", this.selectedImage$); //DEBUG
   }
 }
