@@ -26,8 +26,6 @@ export class DialogRowContentComponent implements OnInit {
     let test = updateImageForm.value
     const tempRow: RowElement = {image: this.data.image, name: test.uploadName, size: test.uploadSize, type: test.uploadType}
 
-    // this.dataTableService.addToTable(tempRow);
-
     this.dialogRef.close(tempRow);
   }
 }
