@@ -20,10 +20,18 @@ export class TableDataComponent implements OnInit {
 
   constructor(private dialog: MatDialog, public dataTableService: FileUploadService) { }
 
+  // let dialogRef = this.dialog.open(DialogResultExampleDialog);
+
+  // dialogRef.afterClosed().subscribe(result => {
+  //   this.selectedOption = result;
+  // });
+
   clickedRow(row: RowElement): void{
     this.dialog.open(DialogRowContentComponent, {
         data: row
-    }).afterClosed().subscribe(updatedRow => console.log(updatedRow))};
+    }).afterClosed().subscribe(
+      updatedRow => {this.clickedRow = updatedRow}
+      )};
 
   ngOnInit(): void {
   }
