@@ -26,14 +26,18 @@ export class TableDataComponent implements OnInit {
     });
   }
 
+  // clickedRow(row: RowElement): void{
+  //   //After closed set a subscribe to listen if data has been updated.
+  //   this.dialog.open(DialogRowContentComponent, {
+  //       data: row
+  //   }).afterClosed().pipe(filter()).subscribe()};
+
   //Calls our clicked row, and send th data from our clicked row into the dialog i open to update the data.
   clickedRow(row: RowElement): void{
     //After closed set a subscribe to listen if data has been updated.
     this.dialog.open(DialogRowContentComponent, {
         data: row
-    }).afterClosed().subscribe((row: RowElement[])=> {
-      this.dataSource.data = row;
-    })};
+    }).afterClosed().subscribe(updatedRow => this.dataTableService.addToTable(updatedRow))};
 
   ngOnInit(): void {
   }

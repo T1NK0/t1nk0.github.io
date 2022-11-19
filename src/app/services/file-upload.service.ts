@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, find, Observable } from 'rxjs';
 import { RowElement } from '../interfaces/row-element';
 
 @Injectable({
@@ -20,15 +20,15 @@ export class FileUploadService {
   public addToTable(row: RowElement): void{
     this.container.push(row);
     this.dataContainer$.next(this.container);
-    console.log(this.container);
+    console.log("Upload"+ this.dataContainer$);
   }
 
-  //Data to update from table.
-  updateSelectedImage(row: RowElement) {
-    this.container.push(row);
-    this.dataContainer$.next(this.container);
-    console.log(this.container);
-  }
+  // //Data to update from table.
+  // updateSelectedImage(row: RowElement) {
+  //   this.container.push(row);
+  //   this.dataContainer$.next(this.container);
+  //   console.log("Update"+this.dataContainer$);
+  // }
 
   //Return all data.
   getAllData(): Observable<RowElement[]> {

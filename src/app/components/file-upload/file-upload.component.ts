@@ -17,16 +17,10 @@ export class FileUploadComponent implements OnInit {
   }
 
   imageUpload(event: any) {
-    var file = event.target.files[0];
-
     var reader = new FileReader();
 		reader.readAsDataURL(event.target.files[0]);
 
     reader.onload = (_event) => {
-
-      // const tempRow: RowElement = {image: reader.result, name: file.name, size: file.size, type: file.type}
-      // this.dataTableService.addToTable(tempRow);
-
       this.dialog.open(DialogImageUploadComponent,
         {
           data: {image: reader.result, name: '', size: '', type: ''}
