@@ -24,10 +24,14 @@ export class DialogImageUploadComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   save() {
     let test = this.uploadImageForm.value
     const tempRow: RowElement = {image: this.data.image, name: test.uploadName, size: test.uploadSize, type: test.uploadType}
       this.dataTableService.addToTable(tempRow);
+          // this.dataTableService.getAllData().subscribe((data: RowElement[]=> {
+    //   this.dataSource.data = data;
+    // }))
   }
 
 }
