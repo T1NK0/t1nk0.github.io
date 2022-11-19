@@ -23,7 +23,7 @@ export class TableDataComponent implements OnInit {
   clickedRow(row: RowElement): void{
     this.dialog.open(DialogRowContentComponent, {
         data: row
-    }).afterClosed().subscribe(updatedRow => console.log(updatedRow))};
+    }).afterClosed().subscribe(updatedRow => this.dataTableService.updateSelectedImage(updatedRow))};
 
   ngOnInit(): void {
   }
