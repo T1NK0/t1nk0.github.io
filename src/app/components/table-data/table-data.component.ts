@@ -28,6 +28,8 @@ export class TableDataComponent implements OnInit {
     });
   }
 
+
+  //ATTEMPT AT USING FILTER BUT DEPRICATED, TRING TO FIGURE OUT OTHER SOLUTION.
   // clickedRow(row: RowElement): void{
   //   //After closed set a subscribe to listen if data has been updated.
   //   this.dialog.open(DialogRowContentComponent, {
