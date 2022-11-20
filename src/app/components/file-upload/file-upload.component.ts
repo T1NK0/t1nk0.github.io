@@ -16,6 +16,8 @@ export class FileUploadComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  //Upload button
   imageUpload(event: any) {
     var reader = new FileReader();
 		reader.readAsDataURL(event.target.files[0]);

@@ -17,7 +17,9 @@ export class TableDataComponent implements OnInit {
   public dataSource =  new MatTableDataSource<RowElement>();
 
 
+  //Columns to display
   displayedColumns: string[] = ['name', 'size', 'type','image'];
+  //ClickedRows to be the row we clicked
   clickedRows = new Set<RowElement>();
 
   constructor(private dialog: MatDialog, public dataTableService: FileUploadService) {

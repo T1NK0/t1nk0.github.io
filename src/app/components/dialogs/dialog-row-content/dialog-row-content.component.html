@@ -3,19 +3,30 @@
 <div mat-dialog-content>
   <img src={{data.image}}>
   <form [formGroup]="updateImageForm" (ngSubmit)="save(updateImageForm)">
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label for="uploadName">Name</mat-label>
       <input matInput id="uploadName" name="uploadName" formControlName="uploadName" value={{data.name}}>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label for="uploadSize">Size</mat-label>
-      <input matInput id="uploadSize" name="uploadSize" formControlName="uploadSize" value={{data.size}}>
+      <select matNativeControl id="uploadSize" formControlName="uploadSize" value={{data.size}} required>
+        <option value="1920x1080">1920x1080</option>
+        <option value="1280x720">1280x720</option>
+        <option value="500x500">500x500</option>
+      </select>
+      <!-- <input matInput id="uploadSize" name="uploadSize" formControlName="uploadSize" value={{data.size}}> -->
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label for="uploadType">Type</mat-label>
-      <input matInput id="uploadType" name="uploadType" formControlName="uploadType" value={{data.type}}>
+      <select matNativeControl id="uploadType" formControlName="uploadType" value={{data.type}} required>
+        <option value=".jpg">.jpg</option>
+        <option value=".jpeg">.jpeg</option>
+        <option value=".gif">.gif</option>
+        <option value=".png">.png</option>
+      </select>
+      <!-- <input matInput id="uploadType" name="uploadType" formControlName="uploadType" value={{data.type}}> -->
     </mat-form-field>
     <div mat-dialog-actions>
       <button type="submit">Update</button>
